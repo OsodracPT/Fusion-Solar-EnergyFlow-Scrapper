@@ -63,6 +63,7 @@ driver.implicitly_wait(10)
 # Close welcome window
 try:
     driver.find_element_by_id("login_info_win_close").click()
+    print("Closing last login info banner.")
 except NoSuchElementException:
     print("Welcome window not found. Moving on.")
 
