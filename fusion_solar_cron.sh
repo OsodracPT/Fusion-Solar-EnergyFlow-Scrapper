@@ -11,6 +11,4 @@ source ./env/bin/activate
 # let the PATH figure out which version to run (based on what your
 # virtualenv has configured).
 
-> /home/john/logs/backup.log 2>&1
-
 python screenshot.py && cp painel.png /home/pi/homeassistant/config/www
