@@ -14,6 +14,7 @@ options = Options()
 # Set headless to False for debugging purposes
 options.headless = True
 options.add_argument('ignore-certificate-errors')
+options.add_argument('log-level=1')
 
 # RaspberryPi config
 # driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=options)
@@ -57,7 +58,7 @@ login_click = driver.find_element_by_id("submitDataverify")
 driver.execute_script("arguments[0].click();", login_click)
 
 # Wait for page to load
-driver.implicitly_wait(5)
+driver.implicitly_wait(10)
 
 # Close welcome window
 try:
@@ -67,6 +68,10 @@ except NoSuchElementException:
 
 # now that we have the preliminary stuff out of the way time to get that image :D
 # find part of the page you want image of
-element = driver.find_element_by_class_name('nco-station-overview-energyFlow') 
-element.screenshot('painel.png')
+try:
+    element = driver.find_element_by_class_name('nco-station-overview-energyFlow')
+    print("Taking the screenshot. Saving to painel.png")
+    element.screenshot('painel.png')
+except NoSuchElementException:
+    print("EnergyFlow not found.")
 driver.quit()

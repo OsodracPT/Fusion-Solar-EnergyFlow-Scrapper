@@ -24,5 +24,9 @@ $ virtualenv venv
 ```
 To begin using the virtual environment, it needs to be activated:
 ```bash
-$ source venv/bin/activate
+$ source ./env/bin/activate
+```
+Install the required packages
+```bash
+pip install -r requirements.txt
 ```
